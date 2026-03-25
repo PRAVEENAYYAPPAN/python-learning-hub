@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- p5.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <!-- CodeMirror for code editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/python/python.min.js"></script>
+    <!-- marked.js for markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Python Learning Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#topics">Topics</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Welcome to Python Learning Hub</h2>
+            <p>Learn Python with interactive animations, games, and hands-on coding.</p>
+            <a href="#topics" class="btn">Start Learning</a>
+        </section>
+        <section id="topics">
+            <h2>Topics</h2>
+            <div class="topic-grid">
+                <!-- Topic cards will be generated dynamically -->
+                <div class="topic-card">
+                    <h3>Variables and Data Types</h3>
+                    <p>Learn the basics of storing data in Python.</p>
+                    <a href="topics/variables.html" class="btn">Learn</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Control Flow</h3>
+                    <p>Master conditionals and loops.</p>
+                    <a href="topics/control_flow.html" class="btn">Learn</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Functions</h3>
+                    <p>Organize your code with reusable functions.</p>
+                    <a href="topics/functions.html" class="btn">Learn</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Data Structures</h3>
+                    <p>Lists, dictionaries, sets, and tuples.</p>
+                    <a href="topics/data_structures.html" class="btn">Learn</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Object-Oriented Programming</h3>
+                    <p>Classes, objects, inheritance, and polymorphism.</p>
+                    <a href="topics/oop.html" class="btn">Learn</a>
+                </div>
+                <div class="topic-card">
+                    <h3>File Handling</h3>
+                    <p>Reading from and writing to files.</p>
+                    <a href="topics/file_handling.html" class="btn">Learn</a>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This platform uses open-source technologies to provide an engaging Python learning experience.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Python Learning Hub. Made with ❤️ using open-source tools.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

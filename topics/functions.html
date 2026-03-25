@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions - Python Learning Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- p5.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <!-- CodeMirror for code editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/python/python.min.js"></script>
+    <!-- marked.js for markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Specific styles for topic pages */
+        .topic-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .topic-content h2 {
+            color: #6a11cb;
+            margin-top: 0;
+        }
+        .topic-content h3 {
+            color: #2575fc;
+        }
+        .code-editor {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        .run-btn {
+            background: #28a745;
+            margin-left: 1rem;
+        }
+        .run-btn:hover {
+            background: #218838;
+        }
+        .output {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            min-height: 50px;
+            margin-top: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .animation-container {
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .quiz {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quiz question {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .options {
+            margin: 1rem 0;
+        }
+        .options label {
+            display: block;
+            margin: 0.5rem 0;
+        }
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Python Learning Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#topics">Topics</a></li>
+                <li><a href="../index.html#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="topic-content">
+            <h1>Functions</h1>
+            <p>Learn how to organize and reuse code with functions in Python.</p>
+
+            <!-- Concept Explanation -->
+            <section>
+                <h2>What is a Function?</h2>
+                <p>A function is a block of organized, reusable code that performs a single, related action.</p>
+                <div class="animation-container" id="function-animation"></div>
+            </section>
+
+            <!-- Interactive Code Editor -->
+            <section>
+                <h2>Try it Yourself</h2>
+                <div>
+                    <textarea id="code-editor"># Write your Python code here
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+print(greet("Bob"))</textarea>
+                    <button class="run-btn" id="run-button">Run Code</button>
+                </div>
+                <div class="output" id="output"></div>
+            </section>
+
+            <!-- Function Parameters and Return Values -->
+            <section>
+                <h2>Function Parameters and Return Values</h2>
+                <div class="animation-container" id="param-animation"></div>
+                <h3>Example: Function with Multiple Parameters</h3>
+                <pre><code class="language-python">def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(5, 3)
+print(result)  # Output: 8</code></pre>
+                <h3>Example: Function with Default Parameters</h3>
+                <pre><code class="language-python">def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+print(greet("Alice"))          # Output: Hello, Alice!
+print(greet("Bob", "Hi"))      # Output: Hi, Bob!</code></pre>
+            </section>
+
+            <!-- Mini Game / Quiz -->
+            <section>
+                <h2>Quick Quiz</h2>
+                <div class="quiz">
+                    <div class="question" id="quiz-question">What is the output of the following code?</div>
+                    <pre><code class="language-python">def multiply(x, y=2):
+    return x * y
+
+print(multiply(5))
+print(multiply(5, 3))</code></pre>
+                    <div class="options">
+                        <label><input type="radio" name="quiz" value="a"> a) 10 then 15</label>
+                        <label><input type="radio" name="quiz" value="b"> b) 5 then 15</label>
+                        <label><input type="radio" name="quiz" value="c"> c) 10 then 5</label>
+                        <label><input type="radio" name="quiz" value="d"> d) 5 then 5</label>
+                    </div>
+                    <button id="submit-quiz">Submit Answer</button>
+                    <div class="feedback hidden" id="quiz-feedback"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Python Learning Hub. Made with ❤️ using open-source tools.</p>
+    </footer>
+
+    <!-- Include p5.js sketches and other scripts -->
+    <script src="../js/function-sketch.js"></script>
+    <script src="../js/param-sketch.js"></script>
+    <script src="../js/topic-script.js"></script>
+</body>
+</html>

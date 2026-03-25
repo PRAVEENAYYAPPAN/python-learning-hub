@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables and Data Types - Python Learning Hub</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- p5.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <!-- CodeMirror for code editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/python/python.min.js"></script>
+    <!-- marked.js for markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Specific styles for topic pages */
+        .topic-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .topic-content h2 {
+            color: #6a11cb;
+            margin-top: 0;
+        }
+        .topic-content h3 {
+            color: #2575fc;
+        }
+        .code-editor {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        .run-btn {
+            background: #28a745;
+            margin-left: 1rem;
+        }
+        .run-btn:hover {
+            background: #218838;
+        }
+        .output {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            min-height: 50px;
+            margin-top: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .animation-container {
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .quiz {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quiz question {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .options {
+            margin: 1rem 0;
+        }
+        .options label {
+            display: block;
+            margin: 0.5rem 0;
+        }
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Python Learning Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#topics">Topics</a></li>
+                <li><a href="../index.html#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="topic-content">
+            <h1>Variables and Data Types</h1>
+            <p>Learn how to store and manipulate data in Python using variables and different data types.</p>
+
+            <!-- Concept Explanation -->
+            <section>
+                <h2>What are Variables?</h2>
+                <p>Variables are containers for storing data values. In Python, you don't need to declare the type of variable explicitly.</p>
+                <div class="animation-container" id="variable-animation"></div>
+            </section>
+
+            <!-- Interactive Code Editor -->
+            <section>
+                <h2>Try it Yourself</h2>
+                <div>
+                    <textarea id="code-editor"># Write your Python code here
+x = 5
+y = "Hello, World!"
+print(x)
+print(y)
+print(type(x))
+print(type(y))</textarea>
+                    <button class="run-btn" id="run-button">Run Code</button>
+                </div>
+                <div class="output" id="output"></div>
+            </section>
+
+            <!-- Data Types Explanation -->
+            <section>
+                <h2>Data Types in Python</h2>
+                <div class="animation-container" id="data-type-animation"></div>
+                <h3>Common Data Types:</h3>
+                <ul>
+                    <li><strong>Integers (int):</strong> Whole numbers (e.g., 5, -3, 0)</li>
+                    <li><strong>Floats (float):</strong> Numbers with decimal points (e.g., 3.14, -0.5)</li>
+                    <li><strong>Strings (str):</strong> Text enclosed in quotes (e.g., "Hello", 'Python')</li>
+                    <li><strong>Booleans (bool):</strong> True or False values</li>
+                    <li><strong>Lists:</strong> Ordered, mutable collections (e.g., [1, 2, 3])</li>
+                    <li><strong>Dictionaries:</strong> Key-value pairs (e.g., {"name": "Alice", "age": 25})</li>
+                </ul>
+            </section>
+
+            <!-- Mini Game / Quiz -->
+            <section>
+                <h2>Quick Quiz</h2>
+                <div class="quiz">
+                    <div class="question" id="quiz-question">What is the output of the following code?</div>
+                    <pre><code class="language-python">x = 10
+y = 3.5
+print(type(x))
+print(type(y))</code></pre>
+                    <div class="options">
+                        <label><input type="radio" name="quiz" value="a"> a) <code>int</code> then <code>float</code></label>
+                        <label><input type="radio" name="quiz" value="b"> b) <code>float</code> then <code>int</code></label>
+                        <label><input type="radio" name="quiz" value="c"> c) <code>str</code> then <code>int</code></label>
+                        <label><input type="radio" name="quiz" value="d"> d) <code>bool</code> then <code>str</code></label>
+                    </div>
+                    <button id="submit-quiz">Submit Answer</button>
+                    <div class="feedback hidden" id="quiz-feedback"></button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Python Learning Hub. Made with ❤️ using open-source tools.</p>
+    </footer>
+
+    <!-- Include p5.js sketches and other scripts -->
+    <script src="../js/variables-sketch.js"></script>
+    <script src="../js/data-type-sketch.js"></script>
+    <script src="../js/topic-script.js"></script>
+</body>
+</html>

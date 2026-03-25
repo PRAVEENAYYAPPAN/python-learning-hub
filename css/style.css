@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.topic-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.topic-card h3 {
+    background: #6a11cb;
+    color: #fff;
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.topic-card p {
+    flex-grow: 1;
+    padding: 1.5rem;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    background: #2575fc;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    margin: 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+    align-self: center;
+}
+
+.btn:hover {
+    background: #1a56db;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 3rem 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2.2rem;
+}
+
+#home p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #2c3e50;
+    color: #fff;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+}
