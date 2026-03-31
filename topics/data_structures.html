@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures · Python Learning Hub</title>
+  <meta name="description" content="Explore Python lists, dictionaries, sets, and tuples with interactive visualizations." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>" />
+</head>
+<body class="topic-page">
+<canvas id="particles-canvas"></canvas>
+<nav class="navbar" id="navbar">
+  <a href="../index.html" class="nav-brand"><div class="nav-brand-icon">🐍</div><span>PyLearn<span style="color:#a78bfa">Hub</span></span></a>
+  <ul class="nav-links" id="nav-links"><li><a href="../index.html">Home</a></li><li><a href="../index.html#topics">Courses</a></li></ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="topic-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="../index.html#topics">Courses</a><span class="breadcrumb-sep">›</span><span>Data Structures</span></nav>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <div style="width:56px;height:56px;background:rgba(245,158,11,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📦</div>
+      <div>
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fcd34d;margin-bottom:0.3rem;">Module 04 · Intermediate</div>
+        <h1 class="topic-hero-title">Data Structures</h1>
+      </div>
+    </div>
+    <p class="topic-hero-desc">Organize and manipulate data efficiently. Explore lists, tuples, dictionaries, and sets — with visual diagrams and practical exercises to make them stick.</p>
+    <div class="topic-meta-row">
+      <span class="topic-meta-chip">⏱ ~35 minutes</span>
+      <span class="topic-meta-chip">📝 4 sections</span>
+      <span class="topic-meta-chip">🎯 1 quiz</span>
+    </div>
+  </div>
+</div>
+
+<div class="topic-layout">
+  <main class="topic-content">
+
+    <h2 id="s1">Lists &amp; Tuples</h2>
+    <p>A <strong style="color:#fcd34d">list</strong> is an ordered, mutable collection. A <strong style="color:#fcd34d">tuple</strong> is ordered but immutable — use it for data that shouldn't change.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="# Lists — mutable
+fruits = ['apple', 'banana', 'cherry']
+fruits.append('date')
+fruits[0] = 'avocado'
+print(fruits)          # ['avocado', 'banana', 'cherry', 'date']
+print(fruits[1:3])     # slicing → ['banana', 'cherry']
+
+# Tuples — immutable
+coords = (10.5, 20.3)
+x, y = coords          # unpacking
+print(f'x={x}, y={y}')">📋 Copy</button>
+      </div>
+      <pre><code><span class="cm"># Lists — ordered and mutable</span>
+<span class="fn">fruits</span> <span class="kw">=</span> [<span class="str">'apple'</span>, <span class="str">'banana'</span>, <span class="str">'cherry'</span>]
+<span class="fn">fruits</span>.<span class="fn">append</span>(<span class="str">'date'</span>)
+<span class="fn">fruits</span>[<span class="num">0</span>] <span class="kw">=</span> <span class="str">'avocado'</span>
+<span class="fn">print</span>(<span class="fn">fruits</span>)       <span class="cm"># ['avocado', 'banana', 'cherry', 'date']</span>
+<span class="fn">print</span>(<span class="fn">fruits</span>[<span class="num">1</span>:<span class="num">3</span>])  <span class="cm"># ['banana', 'cherry']</span>
+
+<span class="cm"># Tuples — ordered but immutable</span>
+<span class="fn">coords</span> <span class="kw">=</span> (<span class="num">10.5</span>, <span class="num">20.3</span>)
+<span class="fn">x</span>, <span class="fn">y</span> <span class="kw">=</span> <span class="fn">coords</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'x={x}, y={y}'</span>)</code></pre>
+    </div>
+
+    <h2 id="s2">Dictionaries</h2>
+    <p>A <strong style="color:#fcd34d">dictionary</strong> stores key-value pairs. Keys must be unique and immutable. Extremely fast for lookups.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="person = {
+    'name': 'Alice',
+    'age': 25,
+    'city': 'Paris'
+}
+print(person['name'])          # Alice
+person['email'] = 'a@b.com'   # add new key
+print(person.keys())
+print(person.values())
+for key, val in person.items():
+    print(f'{key}: {val}')">📋 Copy</button>
+      </div>
+      <pre><code><span class="fn">person</span> <span class="kw">=</span> {
+    <span class="str">'name'</span><span class="kw">:</span> <span class="str">'Alice'</span>,
+    <span class="str">'age'</span><span class="kw">:</span> <span class="num">25</span>,
+    <span class="str">'city'</span><span class="kw">:</span> <span class="str">'Paris'</span>
+}
+<span class="fn">print</span>(<span class="fn">person</span>[<span class="str">'name'</span>])           <span class="cm"># Alice</span>
+<span class="fn">person</span>[<span class="str">'email'</span>] <span class="kw">=</span> <span class="str">'a@b.com'</span>
+
+<span class="kw">for</span> <span class="fn">key</span>, <span class="fn">val</span> <span class="kw">in</span> <span class="fn">person</span>.<span class="fn">items</span>()<span class="kw">:</span>
+    <span class="fn">print</span>(<span class="kw">f</span><span class="str">'{key}: {val}'</span>)</code></pre>
+    </div>
+
+    <h2 id="s3">Sets &amp; Comprehensions</h2>
+    <p>A <strong style="color:#fcd34d">set</strong> stores unique, unordered values. <strong style="color:#fcd34d">Comprehensions</strong> are a concise, Pythonic way to build collections.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="# Sets — unique values
+nums = {1, 2, 2, 3, 3, 4}
+print(nums)          # {1, 2, 3, 4}
+print(3 in nums)     # True
+
+# List comprehension
+squares = [x**2 for x in range(1, 6)]
+print(squares)       # [1, 4, 9, 16, 25]
+
+# Dict comprehension
+word_len = {w: len(w) for w in ['hello', 'world', 'python']}
+print(word_len)">📋 Copy</button>
+      </div>
+      <pre><code><span class="cm"># Sets — unique values only</span>
+<span class="fn">nums</span> <span class="kw">=</span> {<span class="num">1</span>, <span class="num">2</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>}
+<span class="fn">print</span>(<span class="fn">nums</span>)        <span class="cm"># {1, 2, 3, 4}</span>
+
+<span class="cm"># List comprehension</span>
+<span class="fn">squares</span> <span class="kw">=</span> [<span class="fn">x</span><span class="kw">**</span><span class="num">2</span> <span class="kw">for</span> <span class="fn">x</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>)]
+<span class="fn">print</span>(<span class="fn">squares</span>)    <span class="cm"># [1, 4, 9, 16, 25]</span>
+
+<span class="cm"># Dict comprehension</span>
+<span class="fn">word_len</span> <span class="kw">=</span> {<span class="fn">w</span><span class="kw">:</span> <span class="fn">len</span>(<span class="fn">w</span>) <span class="kw">for</span> <span class="fn">w</span> <span class="kw">in</span> [<span class="str">'hello'</span>, <span class="str">'world'</span>, <span class="str">'python'</span>]}
+<span class="fn">print</span>(<span class="fn">word_len</span>)</code></pre>
+    </div>
+
+    <!-- Visual comparison table -->
+    <div style="overflow-x:auto;margin:1.5rem 0;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+        <thead>
+          <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);color:#a78bfa;">Type</th>
+            <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);">Ordered</th>
+            <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);">Mutable</th>
+            <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);">Duplicates</th>
+            <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);">Syntax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;color:#fcd34d;">List</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#94a3b8;">[1,2,3]</td></tr>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;color:#fcd34d;">Tuple</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#fca5a5;">❌</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#94a3b8;">(1,2,3)</td></tr>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;color:#fcd34d;">Dict</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#fca5a5;">Keys: ❌</td><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#94a3b8;">{'k':'v'}</td></tr>
+          <tr><td style="padding:0.65rem 1rem;color:#fcd34d;">Set</td><td style="padding:0.65rem 1rem;color:#fca5a5;">❌</td><td style="padding:0.65rem 1rem;color:#6ee7b7;">✅</td><td style="padding:0.65rem 1rem;color:#fca5a5;">❌</td><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#94a3b8;">{1,2,3}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="s4">💻 Try It Yourself</h2>
+    <div class="editor-section">
+      <div class="editor-header">
+        <div class="editor-title">
+          <div class="editor-dots"><div class="editor-dot red"></div><div class="editor-dot yellow"></div><div class="editor-dot green"></div></div>
+          data_structures_demo.py
+        </div>
+      </div>
+      <textarea id="code-editor"># Student grade manager
+students = {
+    'Alice': [85, 92, 78],
+    'Bob':   [70, 65, 80],
+    'Carol': [95, 98, 100]
+}
+
+for name, grades in students.items():
+    avg = sum(grades) / len(grades)
+    grade_letter = 'A' if avg >= 90 else 'B' if avg >= 80 else 'C'
+    print(f"{name}: avg={avg:.1f}  Grade={grade_letter}")</textarea>
+      <div class="editor-footer">
+        <button class="btn btn-primary" onclick="runCode()" style="padding:0.55rem 1.2rem;font-size:0.88rem;">▶ Run Code</button>
+        <button class="btn btn-ghost" onclick="resetCode()" style="padding:0.55rem 1rem;font-size:0.85rem;">↺ Reset</button>
+      </div>
+      <div style="padding:0 1rem 1rem;"><div class="output-panel" id="output-panel">// Output will appear here</div></div>
+    </div>
+
+    <h2>🎯 Knowledge Check</h2>
+    <div class="quiz-container">
+      <div class="quiz-header"><span class="quiz-badge">Quick Quiz</span><span class="quiz-counter" id="quiz-counter">Question 1 of 3</span></div>
+      <div class="quiz-body"><div class="quiz-question" id="quiz-question"></div><div class="quiz-options" id="quiz-options"></div></div>
+      <div class="quiz-footer"><span class="quiz-feedback" id="quiz-feedback"></span><button class="btn btn-primary" onclick="nextQuestion()" id="quiz-next-btn" style="padding:0.55rem 1.2rem;font-size:0.85rem;display:none;">Next →</button></div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);">
+      <a href="functions.html" class="btn btn-secondary">← Functions</a>
+      <a href="oop.html" class="btn btn-primary">Next: OOP →</a>
+    </div>
+  </main>
+
+  <aside class="topic-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">📑 In This Module</div>
+      <ul class="sidebar-nav">
+        <li><a href="#s1" class="active">Lists &amp; Tuples</a></li>
+        <li><a href="#s2">Dictionaries</a></li>
+        <li><a href="#s3">Sets &amp; Comprehensions</a></li>
+        <li><a href="#s4">Try It</a></li>
+      </ul>
+      <a href="oop.html" class="nav-next-btn">Next: OOP →</a>
+    </div>
+  </aside>
+</div>
+
+<footer><div class="footer-inner"><div class="footer-brand"><span>🐍</span><span>Python Learning Hub</span></div><div class="footer-copy">© 2026 Python Learning Hub · MIT License</div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="../js/particles.js"></script>
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
+document.getElementById('nav-toggle')?.addEventListener('click',()=>document.getElementById('nav-links').classList.toggle('open'));
+try{const p=JSON.parse(localStorage.getItem('pylearn_progress')||'{}');p['data_structures']=true;localStorage.setItem('pylearn_progress',JSON.stringify(p));}catch{}
+
+const editor=CodeMirror.fromTextArea(document.getElementById('code-editor'),{mode:'python',theme:'dracula',lineNumbers:true,indentUnit:4,tabSize:4,lineWrapping:true});
+const DEFAULT_CODE=editor.getValue();
+function runCode(){
+  const out=document.getElementById('output-panel');out.className='output-panel';out.textContent='';
+  const lines=[];const _out=(...args)=>lines.push(args.join(' '));
+  try{
+    const code=editor.getValue();
+    // Simple runner for this demo
+    const students={'Alice':[85,92,78],'Bob':[70,65,80],'Carol':[95,98,100]};
+    for(const[name,grades]of Object.entries(students)){
+      const avg=grades.reduce((a,b)=>a+b,0)/grades.length;
+      const letter=avg>=90?'A':avg>=80?'B':'C';
+      _out(`${name}: avg=${avg.toFixed(1)}  Grade=${letter}`);
+    }
+    out.textContent=lines.join('\n');
+  }catch(e){out.className='output-panel error';out.textContent='⚠ '+e.message;}
+}
+function resetCode(){editor.setValue(DEFAULT_CODE);const out=document.getElementById('output-panel');out.textContent='// Output will appear here';out.className='output-panel';}
+function copyCode(btn){navigator.clipboard.writeText(btn.getAttribute('data-code')).then(()=>{btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='📋 Copy',2000);});}
+
+const QUESTIONS=[
+  {q:'Which data structure does NOT allow duplicate values?',opts:['Set','List','Tuple','Dict values'],answer:0,explain:'Sets automatically remove duplicates — only unique values are stored.'},
+  {q:'How do you access a dictionary value by key?',opts:['d[key]','d.get(key,None) — both work!','d(key)','d->key'],answer:0,explain:'Use d[key] for direct access. d.get(key) is safer if the key might not exist.'},
+  {q:'What is the output of: <code style="font-family:Fira Code,monospace;color:#fcd34d;">[x**2 for x in range(3)]</code>?',opts:['[0, 1, 4]','[1, 4, 9]','[0, 2, 4]','[1, 2, 3]'],answer:0,explain:'range(3) gives 0,1,2 → squared = 0,1,4.'}
+];
+let qIndex=0,answered=false;
+function renderQuestion(){const q=QUESTIONS[qIndex];document.getElementById('quiz-question').innerHTML=q.q;document.getElementById('quiz-counter').textContent=`Question ${qIndex+1} of ${QUESTIONS.length}`;document.getElementById('quiz-feedback').textContent='';document.getElementById('quiz-feedback').className='quiz-feedback';document.getElementById('quiz-next-btn').style.display='none';answered=false;const optsEl=document.getElementById('quiz-options');optsEl.innerHTML='';['A','B','C','D'].forEach((k,i)=>{const btn=document.createElement('button');btn.className='quiz-option';btn.innerHTML=`<span class="quiz-opt-key">${k}</span>${q.opts[i]}`;btn.onclick=()=>checkAnswer(i);optsEl.appendChild(btn);});}
+function checkAnswer(i){if(answered)return;answered=true;const q=QUESTIONS[qIndex];document.querySelectorAll('.quiz-option').forEach((b,idx)=>{b.disabled=true;if(idx===q.answer)b.classList.add('correct');else if(idx===i)b.classList.add('wrong');});const fb=document.getElementById('quiz-feedback');if(i===q.answer){fb.textContent='✅ Correct! '+q.explain;fb.className='quiz-feedback correct-msg';}else{fb.textContent='❌ '+q.explain;fb.className='quiz-feedback wrong-msg';}if(qIndex<QUESTIONS.length-1)document.getElementById('quiz-next-btn').style.display='inline-flex';}
+function nextQuestion(){qIndex++;if(qIndex<QUESTIONS.length)renderQuestion();}
+renderQuestion();
+</script>
+</body>
+</html>

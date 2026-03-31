@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Learning Hub — Interactive Python Education Platform</title>
+  <meta name="description" content="Master Python with interactive lessons, animated visualizations, live code editors, and gamified quizzes. The most beautiful way to learn Python." />
+  <meta name="keywords" content="Python, learn Python, programming, coding, interactive Python, python tutorial" />
+  <meta property="og:title" content="Python Learning Hub" />
+  <meta property="og:description" content="Interactive Python education with animations, live code editors & quizzes." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>" />
+</head>
+<body>
+
+<!-- Particles -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- ── Navigation ─────────────────────────────── -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-brand" aria-label="Python Learning Hub home">
+    <div class="nav-brand-icon" aria-hidden="true">🐍</div>
+    <span>PyLearn<span style="color:#a78bfa">Hub</span></span>
+  </a>
+
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#home"     class="active"  id="nav-home">Home</a></li>
+    <li><a href="#topics"              id="nav-topics">Courses</a></li>
+    <li><a href="#features"            id="nav-features">Features</a></li>
+    <li><a href="#about"               id="nav-about">About</a></li>
+    <li><a href="#topics" class="nav-cta" id="nav-start">Start Learning →</a></li>
+  </ul>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Free &amp; Open Source Education
+    </div>
+
+    <h1>
+      Learn Python the<br/>
+      <span class="gradient-text">Modern Way</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Interactive lessons, animated visualizations, live code editors,
+      and gamified quizzes — all in one beautiful platform.
+      No setup required.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#topics" class="btn btn-primary" id="hero-start-btn">
+        🚀 Start Learning Free
+      </a>
+      <a href="https://github.com/PRAVEENAYYAPPAN/python-learning-hub" target="_blank" rel="noopener" class="btn btn-secondary" id="hero-github-btn">
+        ⭐ View on GitHub
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">6</div>
+        <div class="hero-stat-label">Core Topics</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">30+</div>
+        <div class="hero-stat-label">Code Examples</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">100%</div>
+        <div class="hero-stat-label">Free Forever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Progress Tracker ────────────────────────── -->
+<section class="section" id="progress-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="progress-section reveal">
+      <div class="progress-header">
+        <div class="progress-title">📊 Your Learning Progress</div>
+        <div class="progress-pct" id="progress-text">0% Complete</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar" style="width: 0%"></div>
+      </div>
+      <div class="progress-topics" id="progress-dots">
+        <!-- Dots added by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Topics ─────────────────────────────────── -->
+<section class="section" id="topics">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-kicker">📚 Curriculum</div>
+      <h2 class="section-title">Choose Your Topic</h2>
+      <p class="section-desc">Six comprehensive modules covering everything from Python basics to advanced OOP patterns.</p>
+    </div>
+
+    <div class="topic-grid">
+
+      <!-- Card 1 -->
+      <article class="topic-card card-violet reveal" id="card-variables">
+        <div class="card-header">
+          <div class="card-icon">🔤</div>
+          <div class="card-meta">
+            <div class="card-level">Beginner · Module 01</div>
+            <div class="card-title">Variables &amp; Data Types</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Master how Python stores data. Explore integers, floats, strings, booleans, and dynamic typing with interactive exercises.</p>
+          <div class="card-tags">
+            <span class="tag">int / float</span>
+            <span class="tag">str / bool</span>
+            <span class="tag">Type checking</span>
+            <span class="tag">f-strings</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~20 min</span>
+          <a href="topics/variables.html" class="card-link" id="link-variables">Start Module →</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="topic-card card-blue reveal" id="card-controlflow">
+        <div class="card-header">
+          <div class="card-icon">🔀</div>
+          <div class="card-meta">
+            <div class="card-level">Beginner · Module 02</div>
+            <div class="card-title">Control Flow</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Direct your program's logic with conditionals and loops. Build decision trees and iteration patterns with animated flowcharts.</p>
+          <div class="card-tags">
+            <span class="tag">if / elif / else</span>
+            <span class="tag">for loops</span>
+            <span class="tag">while loops</span>
+            <span class="tag">break / continue</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~25 min</span>
+          <a href="topics/control_flow.html" class="card-link" id="link-controlflow">Start Module →</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="topic-card card-green reveal" id="card-functions">
+        <div class="card-header">
+          <div class="card-icon">⚙️</div>
+          <div class="card-meta">
+            <div class="card-level">Intermediate · Module 03</div>
+            <div class="card-title">Functions</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Write clean, reusable code. Learn parameters, return values, lambda expressions, decorators, and scope rules.</p>
+          <div class="card-tags">
+            <span class="tag">def / return</span>
+            <span class="tag">*args / **kwargs</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">Decorators</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~30 min</span>
+          <a href="topics/functions.html" class="card-link" id="link-functions">Start Module →</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="topic-card card-orange reveal" id="card-datastructs">
+        <div class="card-header">
+          <div class="card-icon">📦</div>
+          <div class="card-meta">
+            <div class="card-level">Intermediate · Module 04</div>
+            <div class="card-title">Data Structures</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Organize data efficiently. Deep-dive into lists, dictionaries, sets, and tuples with visual memory diagrams.</p>
+          <div class="card-tags">
+            <span class="tag">List / Tuple</span>
+            <span class="tag">Dict / Set</span>
+            <span class="tag">Comprehensions</span>
+            <span class="tag">Nested structures</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~35 min</span>
+          <a href="topics/data_structures.html" class="card-link" id="link-datastructs">Start Module →</a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="topic-card card-cyan reveal" id="card-oop">
+        <div class="card-header">
+          <div class="card-icon">🏛️</div>
+          <div class="card-meta">
+            <div class="card-level">Advanced · Module 05</div>
+            <div class="card-title">Object-Oriented Programming</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Think in objects. Build classes, leverage inheritance, apply polymorphism, and learn SOLID design principles.</p>
+          <div class="card-tags">
+            <span class="tag">Classes</span>
+            <span class="tag">Inheritance</span>
+            <span class="tag">Polymorphism</span>
+            <span class="tag">Encapsulation</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~45 min</span>
+          <a href="topics/oop.html" class="card-link" id="link-oop">Start Module →</a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="topic-card card-rose reveal" id="card-filehandling">
+        <div class="card-header">
+          <div class="card-icon">📂</div>
+          <div class="card-meta">
+            <div class="card-level">Advanced · Module 06</div>
+            <div class="card-title">File Handling</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Work with real-world data. Read, write, and process files — CSV, JSON, and text — with safe context managers.</p>
+          <div class="card-tags">
+            <span class="tag">open() / with</span>
+            <span class="tag">CSV / JSON</span>
+            <span class="tag">Exceptions</span>
+            <span class="tag">os / pathlib</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-progress-info">⏱ ~30 min</span>
+          <a href="topics/file_handling.html" class="card-link" id="link-filehandling">Start Module →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Features ────────────────────────────────── -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-kicker">✨ What's Inside</div>
+      <h2 class="section-title">Everything You Need to Succeed</h2>
+      <p class="section-desc">Carefully crafted learning tools designed for modern developers.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Live Code Editor</div>
+        <div class="feature-desc">Write and run Python concepts instantly in your browser with a full-featured editor powered by CodeMirror.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🎮</div>
+        <div class="feature-title">Gamified Quizzes</div>
+        <div class="feature-desc">Reinforce your knowledge with interactive multiple-choice quizzes and instant feedback on every answer.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Progress Tracking</div>
+        <div class="feature-desc">Your progress is saved locally so you can see exactly where you are in the curriculum at any time.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🧪</div>
+        <div class="feature-title">Hands-on Exercises</div>
+        <div class="feature-desc">Every module includes practical exercises with pre-filled starter code to get you building immediately.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🌙</div>
+        <div class="feature-title">Dark Mode First</div>
+        <div class="feature-desc">Carefully designed dark theme reduces eye strain during long coding sessions and looks absolutely stunning.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📱</div>
+        <div class="feature-title">Fully Responsive</div>
+        <div class="feature-desc">Learn on any device — desktop, tablet, or phone. The layout adapts beautifully to all screen sizes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About / CTA ─────────────────────────────── -->
+<section class="cta-section" id="about">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div style="font-size:3rem;margin-bottom:1rem;animation:float 3s ease-in-out infinite;">🐍</div>
+      <h2 class="cta-title">Ready to become a Python developer?</h2>
+      <p class="cta-desc">Join thousands of learners who started their coding journey with Python Learning Hub. It's completely free.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#topics" class="btn btn-primary" id="cta-start-btn">🚀 Begin the Journey</a>
+        <a href="https://github.com/PRAVEENAYYAPPAN/python-learning-hub" target="_blank" rel="noopener" class="btn btn-ghost" id="cta-github-btn">📦 View Source Code</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>🐍</span>
+      <span>Python Learning Hub</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#topics">Courses</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="https://github.com/PRAVEENAYYAPPAN/python-learning-hub" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Python Learning Hub · MIT License · Made with ❤️</div>
+  </div>
+</footer>
+
+<script src="js/particles.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

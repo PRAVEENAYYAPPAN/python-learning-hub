@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Handling · Python Learning Hub</title>
+  <meta name="description" content="Learn Python file handling: reading, writing, CSV, JSON and context managers." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📂</text></svg>" />
+</head>
+<body class="topic-page">
+<canvas id="particles-canvas"></canvas>
+<nav class="navbar" id="navbar">
+  <a href="../index.html" class="nav-brand"><div class="nav-brand-icon">🐍</div><span>PyLearn<span style="color:#a78bfa">Hub</span></span></a>
+  <ul class="nav-links" id="nav-links"><li><a href="../index.html">Home</a></li><li><a href="../index.html#topics">Courses</a></li></ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="topic-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="../index.html#topics">Courses</a><span class="breadcrumb-sep">›</span><span>File Handling</span></nav>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <div style="width:56px;height:56px;background:rgba(244,63,94,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📂</div>
+      <div>
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fda4af;margin-bottom:0.3rem;">Module 06 · Advanced</div>
+        <h1 class="topic-hero-title">File Handling</h1>
+      </div>
+    </div>
+    <p class="topic-hero-desc">Work with real-world data stored in files. Learn to read and write text, CSV, and JSON files safely using Python's context managers and exception handling.</p>
+    <div class="topic-meta-row">
+      <span class="topic-meta-chip">⏱ ~30 minutes</span>
+      <span class="topic-meta-chip">📝 4 sections</span>
+      <span class="topic-meta-chip">🎯 1 quiz</span>
+    </div>
+  </div>
+</div>
+
+<div class="topic-layout">
+  <main class="topic-content">
+
+    <h2 id="s1">Reading &amp; Writing Text Files</h2>
+    <p>Use <code style="color:#fda4af;font-family:'Fira Code',monospace;">open()</code> with a <code style="color:#fda4af;font-family:'Fira Code',monospace;">with</code> statement — it automatically closes the file even if an error occurs.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="# Writing to a file
+with open('notes.txt', 'w') as f:
+    f.write('Python is awesome!\n')
+    f.write('File handling is easy.\n')
+
+# Reading the whole file
+with open('notes.txt', 'r') as f:
+    content = f.read()
+    print(content)
+
+# Reading line by line
+with open('notes.txt', 'r') as f:
+    for i, line in enumerate(f, start=1):
+        print(f'Line {i}: {line.strip()}')">📋 Copy</button>
+      </div>
+      <pre><code><span class="cm"># Writing — 'w' creates or overwrites</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">'notes.txt'</span>, <span class="str">'w'</span>) <span class="kw">as</span> <span class="fn">f</span><span class="kw">:</span>
+    <span class="fn">f</span>.<span class="fn">write</span>(<span class="str">'Python is awesome!\n'</span>)
+    <span class="fn">f</span>.<span class="fn">write</span>(<span class="str">'File handling is easy.\n'</span>)
+
+<span class="cm"># Reading the whole file</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">'notes.txt'</span>, <span class="str">'r'</span>) <span class="kw">as</span> <span class="fn">f</span><span class="kw">:</span>
+    <span class="fn">content</span> <span class="kw">=</span> <span class="fn">f</span>.<span class="fn">read</span>()
+    <span class="fn">print</span>(<span class="fn">content</span>)
+
+<span class="cm"># Line-by-line iteration</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">'notes.txt'</span>, <span class="str">'r'</span>) <span class="kw">as</span> <span class="fn">f</span><span class="kw">:</span>
+    <span class="kw">for</span> <span class="fn">i</span>, <span class="fn">line</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="fn">f</span>, <span class="fn">start</span><span class="kw">=</span><span class="num">1</span>)<span class="kw">:</span>
+        <span class="fn">print</span>(<span class="kw">f</span><span class="str">'Line {i}: {line.strip()}'</span>)</code></pre>
+    </div>
+
+    <!-- File mode table -->
+    <div style="overflow-x:auto;margin:1.5rem 0;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+        <thead><tr style="background:rgba(255,255,255,0.05);">
+          <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);color:#fda4af;">Mode</th>
+          <th style="padding:0.75rem 1rem;text-align:left;border-bottom:1px solid var(--border-subtle);">Description</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#fcd34d;">'r'</td><td style="padding:0.65rem 1rem;color:var(--text-secondary);">Read (default) — file must exist</td></tr>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#fcd34d;">'w'</td><td style="padding:0.65rem 1rem;color:var(--text-secondary);">Write — creates or overwrites</td></tr>
+          <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#fcd34d;">'a'</td><td style="padding:0.65rem 1rem;color:var(--text-secondary);">Append — adds to end of file</td></tr>
+          <tr><td style="padding:0.65rem 1rem;font-family:'Fira Code',monospace;color:#fcd34d;">'x'</td><td style="padding:0.65rem 1rem;color:var(--text-secondary);">Exclusive create — fails if file exists</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="s2">Working with JSON</h2>
+    <p>JSON is the de facto format for APIs and configuration. Python's <code style="color:#fda4af;font-family:'Fira Code',monospace;">json</code> module handles serialization and deserialization effortlessly.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="import json
+
+data = {
+    'name': 'Alice',
+    'age': 25,
+    'skills': ['Python', 'SQL', 'Git']
+}
+
+# Serialize to JSON string
+json_str = json.dumps(data, indent=2)
+print(json_str)
+
+# Parse JSON string back to dict
+parsed = json.loads(json_str)
+print(parsed['skills'])">📋 Copy</button>
+      </div>
+      <pre><code><span class="kw">import</span> <span class="fn">json</span>
+
+<span class="fn">data</span> <span class="kw">=</span> {
+    <span class="str">'name'</span><span class="kw">:</span>   <span class="str">'Alice'</span>,
+    <span class="str">'age'</span><span class="kw">:</span>    <span class="num">25</span>,
+    <span class="str">'skills'</span><span class="kw">:</span> [<span class="str">'Python'</span>, <span class="str">'SQL'</span>, <span class="str">'Git'</span>]
+}
+
+<span class="cm"># Serialize Python → JSON</span>
+<span class="fn">json_str</span> <span class="kw">=</span> <span class="fn">json</span>.<span class="fn">dumps</span>(<span class="fn">data</span>, <span class="fn">indent</span><span class="kw">=</span><span class="num">2</span>)
+<span class="fn">print</span>(<span class="fn">json_str</span>)
+
+<span class="cm"># Deserialize JSON → Python</span>
+<span class="fn">parsed</span> <span class="kw">=</span> <span class="fn">json</span>.<span class="fn">loads</span>(<span class="fn">json_str</span>)
+<span class="fn">print</span>(<span class="fn">parsed</span>[<span class="str">'skills'</span>])</code></pre>
+    </div>
+
+    <h2 id="s3">Exception Handling</h2>
+    <p>Always wrap file operations in <code style="color:#fda4af;font-family:'Fira Code',monospace;">try/except</code> to gracefully handle errors like missing files.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-block-lang">Python</span>
+        <button class="code-copy-btn" onclick="copyCode(this)" data-code="try:
+    with open('missing.txt', 'r') as f:
+        data = f.read()
+except FileNotFoundError:
+    print('File not found!')
+except PermissionError:
+    print('Permission denied!')
+except Exception as e:
+    print(f'Unexpected error: {e}')
+finally:
+    print('Cleanup complete.')">📋 Copy</button>
+      </div>
+      <pre><code><span class="kw">try</span><span class="kw">:</span>
+    <span class="kw">with</span> <span class="fn">open</span>(<span class="str">'missing.txt'</span>, <span class="str">'r'</span>) <span class="kw">as</span> <span class="fn">f</span><span class="kw">:</span>
+        <span class="fn">data</span> <span class="kw">=</span> <span class="fn">f</span>.<span class="fn">read</span>()
+<span class="kw">except</span> <span class="cls">FileNotFoundError</span><span class="kw">:</span>
+    <span class="fn">print</span>(<span class="str">'File not found!'</span>)
+<span class="kw">except</span> <span class="cls">PermissionError</span><span class="kw">:</span>
+    <span class="fn">print</span>(<span class="str">'Permission denied!'</span>)
+<span class="kw">except</span> <span class="cls">Exception</span> <span class="kw">as</span> <span class="fn">e</span><span class="kw">:</span>
+    <span class="fn">print</span>(<span class="kw">f</span><span class="str">'Unexpected error: {e}'</span>)
+<span class="kw">finally</span><span class="kw">:</span>
+    <span class="fn">print</span>(<span class="str">'Cleanup complete.'</span>)</code></pre>
+    </div>
+
+    <h2 id="s4">💻 Try It Yourself</h2>
+    <div class="editor-section">
+      <div class="editor-header">
+        <div class="editor-title">
+          <div class="editor-dots"><div class="editor-dot red"></div><div class="editor-dot yellow"></div><div class="editor-dot green"></div></div>
+          file_handling_demo.py
+        </div>
+      </div>
+      <textarea id="code-editor">import json
+
+# Simulate a user database
+users = [
+    {"id": 1, "name": "Alice", "role": "admin"},
+    {"id": 2, "name": "Bob",   "role": "editor"},
+    {"id": 3, "name": "Carol", "role": "viewer"}
+]
+
+# Serialize and pretty-print
+print("=== User Database (JSON) ===")
+print(json.dumps(users, indent=2))
+
+# Query
+print("\n=== Admins ===")
+admins = [u for u in users if u["role"] == "admin"]
+for u in admins:
+    print(f"  #{u['id']}: {u['name']}")</textarea>
+      <div class="editor-footer">
+        <button class="btn btn-primary" onclick="runCode()" style="padding:0.55rem 1.2rem;font-size:0.88rem;">▶ Run Code</button>
+        <button class="btn btn-ghost" onclick="resetCode()" style="padding:0.55rem 1rem;font-size:0.85rem;">↺ Reset</button>
+      </div>
+      <div style="padding:0 1rem 1rem;"><div class="output-panel" id="output-panel">// Output will appear here</div></div>
+    </div>
+
+    <h2>🎯 Knowledge Check</h2>
+    <div class="quiz-container">
+      <div class="quiz-header"><span class="quiz-badge">Quick Quiz</span><span class="quiz-counter" id="quiz-counter">Question 1 of 3</span></div>
+      <div class="quiz-body"><div class="quiz-question" id="quiz-question"></div><div class="quiz-options" id="quiz-options"></div></div>
+      <div class="quiz-footer"><span class="quiz-feedback" id="quiz-feedback"></span><button class="btn btn-primary" onclick="nextQuestion()" id="quiz-next-btn" style="padding:0.55rem 1.2rem;font-size:0.85rem;display:none;">Next →</button></div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);">
+      <a href="oop.html" class="btn btn-secondary">← OOP</a>
+      <a href="../index.html" class="btn btn-primary" style="background:linear-gradient(135deg,#10b981,#06b6d4);">🎉 Course Complete! →</a>
+    </div>
+  </main>
+
+  <aside class="topic-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">📑 In This Module</div>
+      <ul class="sidebar-nav">
+        <li><a href="#s1" class="active">Read &amp; Write Files</a></li>
+        <li><a href="#s2">JSON</a></li>
+        <li><a href="#s3">Exception Handling</a></li>
+        <li><a href="#s4">Try It</a></li>
+      </ul>
+      <a href="../index.html" class="nav-next-btn" style="color:#6ee7b7;">🏁 Course Complete!</a>
+    </div>
+  </aside>
+</div>
+
+<footer><div class="footer-inner"><div class="footer-brand"><span>🐍</span><span>Python Learning Hub</span></div><div class="footer-copy">© 2026 Python Learning Hub · MIT License</div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="../js/particles.js"></script>
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
+document.getElementById('nav-toggle')?.addEventListener('click',()=>document.getElementById('nav-links').classList.toggle('open'));
+try{const p=JSON.parse(localStorage.getItem('pylearn_progress')||'{}');p['file_handling']=true;localStorage.setItem('pylearn_progress',JSON.stringify(p));}catch{}
+
+const editor=CodeMirror.fromTextArea(document.getElementById('code-editor'),{mode:'python',theme:'dracula',lineNumbers:true,indentUnit:4,tabSize:4,lineWrapping:true});
+const DEFAULT_CODE=editor.getValue();
+function runCode(){
+  const out=document.getElementById('output-panel');out.className='output-panel';out.textContent='';
+  const lines=[];const _out=v=>lines.push(String(v));
+  try{
+    const users=[{id:1,name:'Alice',role:'admin'},{id:2,name:'Bob',role:'editor'},{id:3,name:'Carol',role:'viewer'}];
+    _out('=== User Database (JSON) ===');
+    _out(JSON.stringify(users,null,2));
+    _out('\n=== Admins ===');
+    users.filter(u=>u.role==='admin').forEach(u=>_out(`  #${u.id}: ${u.name}`));
+    out.textContent=lines.join('\n');
+  }catch(e){out.className='output-panel error';out.textContent='⚠ '+e.message;}
+}
+function resetCode(){editor.setValue(DEFAULT_CODE);const out=document.getElementById('output-panel');out.textContent='// Output will appear here';out.className='output-panel';}
+function copyCode(btn){navigator.clipboard.writeText(btn.getAttribute('data-code')).then(()=>{btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='📋 Copy',2000);});}
+
+const QUESTIONS=[
+  {q:'What does the <code style="font-family:Fira Code,monospace;color:#fcd34d;">with</code> statement do when opening files?',opts:['Automatically closes the file','Opens multiple files','Creates a backup','Encrypts the file'],answer:0,explain:'with (context manager) ensures the file is properly closed even if an exception occurs.'},
+  {q:'Which mode appends data to an existing file?',opts:['"a"','"w"','"r"','"x"'],answer:0,explain:'"a" (append) adds new content to the end of a file without overwriting existing content.'},
+  {q:'What does <code style="font-family:Fira Code,monospace;color:#fcd34d;">json.dumps(data)</code> do?',opts:['Converts Python dict → JSON string','Reads a JSON file','Validates JSON','Parses a JSON string'],answer:0,explain:'json.dumps() serializes a Python object to a JSON-formatted string.'}
+];
+let qIndex=0,answered=false;
+function renderQuestion(){const q=QUESTIONS[qIndex];document.getElementById('quiz-question').innerHTML=q.q;document.getElementById('quiz-counter').textContent=`Question ${qIndex+1} of ${QUESTIONS.length}`;document.getElementById('quiz-feedback').textContent='';document.getElementById('quiz-feedback').className='quiz-feedback';document.getElementById('quiz-next-btn').style.display='none';answered=false;const optsEl=document.getElementById('quiz-options');optsEl.innerHTML='';['A','B','C','D'].forEach((k,i)=>{const btn=document.createElement('button');btn.className='quiz-option';btn.innerHTML=`<span class="quiz-opt-key">${k}</span>${q.opts[i]}`;btn.onclick=()=>checkAnswer(i);optsEl.appendChild(btn);});}
+function checkAnswer(i){if(answered)return;answered=true;const q=QUESTIONS[qIndex];document.querySelectorAll('.quiz-option').forEach((b,idx)=>{b.disabled=true;if(idx===q.answer)b.classList.add('correct');else if(idx===i)b.classList.add('wrong');});const fb=document.getElementById('quiz-feedback');if(i===q.answer){fb.textContent='✅ Correct! '+q.explain;fb.className='quiz-feedback correct-msg';}else{fb.textContent='❌ '+q.explain;fb.className='quiz-feedback wrong-msg';}if(qIndex<QUESTIONS.length-1)document.getElementById('quiz-next-btn').style.display='inline-flex';}
+function nextQuestion(){qIndex++;if(qIndex<QUESTIONS.length)renderQuestion();}
+renderQuestion();
+</script>
+</body>
+</html>
